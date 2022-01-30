@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using Tiendas.Entities;
 
 namespace Tiendas.DAL
@@ -12,8 +13,11 @@ namespace Tiendas.DAL
             try
             {
                 using (SqlConnection conn = new SqlConnection(dbConn))
-                {   
+                {
                     // Set command to execute stored procedure
+                    Debug.Print("------------------------------");
+                    Debug.Print(dbConn);
+                    Debug.Print("------------------------------");
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "SolicitarDisponibilidad";                      
